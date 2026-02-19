@@ -16,66 +16,52 @@ It contains 16 features (columns) describing population characteristics and wate
 🧾 Dataset Features
 ### General Information
 
-name – Country or area name
+    name – Country or area name
 
-income_group – Country classification by income level
+    income_group – Country classification by income level
 
-pop_n – National population size (in thousands)
+    pop_n – National population size (in thousands)
 
-pop_u – Urban population share (%)
+    pop_u – Urban population share (%)
 
 ### National Water Access Indicators
 
-wat_bas_n – Share with at least basic water service (%)
+    wat_bas_n – Share with at least basic water service (%)
 
-wat_lim_n – Share with limited service (%)
+    wat_lim_n – Share with limited service (%)
 
-wat_unimp_n – Share with unimproved service (%)
+    wat_unimp_n – Share with unimproved service (%)
 
-wat_sur_n – Share using surface water (%)
+    wat_sur_n – Share using surface water (%)
 
 ### Rural Water Access Indicators
 
-wat_bas_r – Rural share with basic service (%)
+    wat_bas_r – Rural share with basic service (%)
 
-wat_lim_r – Rural share with limited service (%)
+    wat_lim_r – Rural share with limited service (%)
 
-wat_unimp_r – Rural share with unimproved service (%)
+    wat_unimp_r – Rural share with unimproved service (%)
 
-wat_sur_r – Rural share using surface water (%)
+    wat_sur_r – Rural share using surface water (%)
 
 ### Urban Water Access Indicators
 
-wat_bas_u – Urban share with basic service (%)
+    wat_bas_u – Urban share with basic service (%)
 
-wat_lim_u – Urban share with limited service (%)
+    wat_lim_u – Urban share with limited service (%)
 
-wat_unimp_u – Urban share with unimproved service (%)
+    wat_unimp_u – Urban share with unimproved service (%)
 
-wat_sur_u – Urban share using surface water (%)
+    wat_sur_u – Urban share using surface water (%)
 
-🧠 Understanding the Data
-
-The dataset contains both categorical and numerical data:
-
-Categorical: country name, income group
-
-Numerical: population size and percentage shares
-
-A total of 12 columns represent water service-level percentages.
-
-📥 Importing the Data
+## Importing the Data
 ### Step 1: Import into Google Sheets
-
-Create a new blank spreadsheet in Google Sheets.
-
-Download the dataset as a CSV file.
 
 Import the CSV file into the spreadsheet.
 
 ### Step 2: Fix Separator Issues
 
-Some rows use semicolons (;) instead of commas, causing incorrect column separation.
+We observe that some rows use semicolons (;) as separators instead of commas as the rest, causing incorrect column separation.
 
 Solution:
 
@@ -83,12 +69,12 @@ Go to Data → Split text to columns
 
 Select Semicolon (;) as the separator
 
-Confirm the dataset has 16 columns (A–P)
+Confirming that the dataset has 16 columns (A–P)
 
-🧹 Data Cleaning and Validation
+## Data Cleaning and Validation
 ### Step 1: Count Values per Row
 
-Create a new column called value_cnt and use:
+We create a new column called value_cnt and use:
 
 =COUNTA(A2:P2)
 
