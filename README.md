@@ -261,3 +261,146 @@ Large countries strongly influence global urbanization trends.
 ## Alternative Visualization
 
 Since urban and rural shares always sum to 100%, a stacked area chart or stacked bar chart could also effectively represent population distribution.
+
+## D.Investigating access by area
+
+## 4. Investigating Access by Area
+### Research Questions
+
+What is the central tendency and spread of the different water access features?
+
+How do these measures compare across national, rural, and urban areas?
+
+This section uses measures of central tendency and spread to understand how access to water varies across different areas.
+
+## A. National Water Access: Central Tendency and Spread
+### Step 1: Calculate Maximum Values
+
+In the Global 2020 Report sheet, calculate the maximum values for the four national service levels:
+
+    wat_bas_n
+
+    wat_lim_n
+
+    wat_unimp_n
+
+    wat_sur_n
+
+    excel
+    =MAX(range)
+
+### Step 2: Fix Values Exceeding 100%
+
+Some wat_bas_n values exceed 100%, which is not logically possible.
+
+Create a Rounded Feature
+
+In the dataset sheet, create a new column:
+
+    excel
+    wat_bas_n_rounded
+
+Round only the decimal places where values exceed 100%.
+
+Why Create a New Feature Instead of Using Toolbar Rounding?
+
+  Toolbar rounding only changes display, not the underlying data.
+
+  Creating a new column ensures data integrity and reproducibility.
+
+Conditional Rounding to Cap at 100%
+
+If you only want to cap values above 100%:
+    =IF(wat_bas_n > 100, ROUND(wat_bas_n,0), wat_bas_n)
+
+### Step 3: Handle Errors
+
+Some rounding operations may return #VALUE!.
+
+Fix:
+
+Use filters to find #VALUE! entries.
+
+Replace them with text "NAN" so calculations work.
+
+### Step 4: Calculate Minimum Values
+
+In the Global 2020 Report sheet, calculate minimum values:
+    excel
+    =MIN(range)
+
+### Step 5: Calculate Central Tendency
+
+For each national water access feature, calculate:
+
+    excel
+    =AVERAGE(range)   // Mean
+    =MEDIAN(range)    // Median
+    =MODE(range)      // Mode
+
+### Step 6: Calculate Spread (IQR and Standard Deviation)
+Quartiles and IQR
+
+Google Sheets does not have a direct IQR function, so compute manually:
+
+    excel
+    =QUARTILE(range, 1)   // Q1
+    =QUARTILE(range, 3)   // Q3
+    =Q3 - Q1              // IQR
+
+Standard Deviation
+
+    excel
+    =STDEV(range)
+
+### Key Insight (National Level)
+
+For _wat_bas_n_, we see that the mean is relatively high and the interquartile range is about a tenth of
+the range, which indicates that our data are concentrated around a point closer to 100% than 0%. This
+means that the majority of people represented in the data have access to at least basic water services
+on a national level.
+
+## C. Visualization: Box and Whisker Plot
+### Step 1: Prepare Five-Number Summary
+
+For each of the 12 features, compute:
+
+Minimum
+
+Q1
+
+Median
+
+Q3
+
+Maximum
+
+### Step 2: Create Box and Whisker (Candlestick) Chart
+
+In Google Sheets, use a Candlestick chart to represent the box and whisker plot.
+
+Interpretation of Chart Elements
+
+Low / High: Minimum and Maximum values (whiskers)
+
+Open / Close: Q1 and Q3 (box boundaries)
+
+Mean: Located inside the box
+
+Box Width: Interquartile range (IQR)
+
+![Box and whisker Plot](./Access%20to%20water.png)
+
+## Insights from the Box and Whisker Plot
+
+Urban areas generally show higher median access to basic water services.
+
+Rural areas show greater variability and lower median access, indicating inequality.
+
+Surface and unimproved water access show wide spread, highlighting disparities in infrastructure.
+
+National averages hide significant urban–rural inequality.
+
+## Conclusion (Access by Area)
+
+Measures of central tendency and spread reveal that basic water access is widespread globally, but inequality persists, especially in rural areas and for unimproved or surface water sources. Box plots effectively highlight disparities that are not visible from averages alone.
