@@ -233,6 +233,9 @@ Use pop_n (m) as the new x-axis.
 
 Enable Aggregate → Average in the chart editor.(USE SMOOTH LINES AND ADD POINT REPRESENTATION)
 
+![Population Growth Chart](./comparison%20of%20share%20of%20the%20national%20population%20living%20in%20urban%20versus%20rural%20areas%20(1).png)
+
+
 Update axis titles accordingly.
 
 ### Why Use ROUNDUP Instead of ROUND?
