@@ -404,3 +404,118 @@ National averages hide significant urban–rural inequality.
 ## Conclusion (Access by Area)
 
 Measures of central tendency and spread reveal that basic water access is widespread globally, but inequality persists, especially in rural areas and for unimproved or surface water sources. Box plots effectively highlight disparities that are not visible from averages alone.
+
+## E.Investigating access by population size
+
+### Research Questions
+
+How does national water access vary by national population size?
+
+How does urban water access vary by urban population share?
+
+How does rural water access vary by rural population share?
+
+This section explores whether population size and area type influence access to drinking water services.
+
+## A. National Water Access by Population Size
+### Step 1: Create a 100% Stacked Column Chart
+
+In the Global 2020 Report sheet:
+
+X-axis (independent variable): pop_n (national population size)
+
+Series (dependent variables):
+
+wat_bas_n
+
+wat_lim_n
+
+wat_unimp_n
+
+wat_sur_n
+
+![National 100% Stacked Column Chart](./National%20distribution%20of%20access%20to%20water%20per%20service%20level.png)
+Convert the chart to a 100% stacked column chart to show population distribution across service levels.
+
+## B. Urban Water Access by Urban Population Share
+### Step 1: Create Rounded Urban Population Feature
+
+    excel
+    =ROUND(pop_u, 0) (nearest whole number)
+
+This creates pop_u (rounded), which groups countries by similar urban population shares.
+
+### Step 2: Create Urban 100% Stacked Column Chart
+
+X-axis: pop_u (rounded)
+
+Series:
+
+wat_bas_u
+
+wat_lim_u
+
+wat_unimp_u
+
+wat_sur_u
+
+Aggregation: Average
+![Urban 100% Stacked Column Chart](./Urban%20distribution%20of%20access%20to%20water%20per%20service%20level.png)
+
+### Step 3: Sort the Dataset
+
+Sort the dataset by pop_u (rounded) to ensure the x-axis is ordered from 0 to 100.
+
+## C. Rural Water Access by Rural Population Share
+### Step 1: Calculate Rural Population Share
+
+    excel
+    =100 - pop_u
+
+### Step 2: Round Rural Population Share
+
+    excel
+    =ROUND(pop_r, 0) (rounded to the nearest whole number)
+
+This creates pop_r (rounded).
+
+### Step 3: Create Rural 100% Stacked Column Chart
+
+X-axis: pop_r (rounded)
+
+Series:
+
+wat_bas_r
+
+wat_lim_r
+
+wat_unimp_r
+
+wat_sur_r
+
+![Rural 100% Stacked Column Chart](./Rural%20distribution%20of%20access%20to%20water%20per%20service%20level.png)
+
+Aggregation: Average
+
+## Insights from Population-Based Visualizations
+
+Countries with larger populations tend to have higher basic water access, but disparities still exist.
+
+Urban areas show consistently higher access to basic services and lower reliance on unimproved or surface water.
+
+Rural areas show significantly lower access and higher variability, indicating inequality in infrastructure.
+
+Access differences are more strongly related to area type (urban vs rural) than population size alone.
+
+❓ Why Bars Were Unordered
+
+Bar charts were unordered because Google Sheets treats population values as categories, not numeric scales.
+Sorting the dataset or using rounded grouped values ensures correct axis ordering.
+
+⭐ Key Conclusion
+
+Population size influences access patterns, but urbanization level is a stronger determinant of water service access.
+
+✅ OPTIONAL (Portfolio-Level Insight Sentence)
+
+Urbanization strongly correlates with improved water access, while rural populations exhibit greater inequality and reliance on unimproved water sources.
