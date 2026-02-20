@@ -169,7 +169,6 @@ Use Google Sheets:
     =ABS(value2 - value1)
 
 ### Key Insight
-![Population Growth Chart](./comparison%20of%20share%20of%20the%20national%20population%20living%20in%20urban%20versus%20rural%20areas.png)
 
 The dataset population values closely match global estimates, but small percentage differences occur due to coverage gaps, rounding, and dataset scope differences.
 
@@ -190,6 +189,8 @@ Add appropriate chart and axis titles.
 (comparison of share of the national population living in urban versus rural areas. )
 
 ### Key Insight
+
+![Population Growth Chart](./comparison%20of%20share%20of%20the%20national%20population%20living%20in%20urban%20versus%20rural%20areas.png)
 
 We find that our data visualization is not very comprehensible due to some of our pop_n values being
 much larger than our other values, in other words, outliers.
